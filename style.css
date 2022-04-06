@@ -12,8 +12,10 @@
     var(--background-2)
   );
 }
+
 .main-wrapper {
   position: relative;
+  width: min(100% - 8rem, 920px);
 }
 
 body {
