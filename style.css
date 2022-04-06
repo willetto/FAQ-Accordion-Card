@@ -12,6 +12,10 @@
     var(--background-2)
   );
 }
+.main-wrapper {
+  position: relative;
+}
+
 body {
   background-image: var(--background-gradient);
   font-family: 'Kumbh Sans', sans-serif;
@@ -167,4 +171,4 @@ p {
   .box {
     padding-inline: 0;
   }
-} ;
+}
