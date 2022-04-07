@@ -24,27 +24,34 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <img src="images/illustration-box-desktop.svg" alt="" class="hero-box" />
     <main class="container">
-      <picture class="hero">
-        <source
-          media="(min-width: 800px)"
-          srcset="images/illustration-woman-online-desktop.svg"
-        />
-        <source srcset="images/illustration-woman-online-mobile.svg" />
-        <img src="images/illustration-woman-online-mobile.svg" alt="" />
-      </picture>
-      <picture>
-        <source
-          media="(min-width: 800px)"
-          srcset="images/bg-pattern-desktop.svg"
-        />
-        <source
-          media="(min-width: 100px)"
-          srcset="images/bg-pattern-mobile.svg"
-        />
-        <img src="images/bg-pattern-mobile.svg" alt="" class="hero-backdrop" />
-      </picture>
+      <div class="img-contain">
+        <picture class="hero">
+          <source
+            media="(min-width: 800px)"
+            srcset="images/illustration-woman-online-desktop.svg"
+          />
+          <source srcset="images/illustration-woman-online-mobile.svg" />
+          <img src="images/illustration-woman-online-mobile.svg" alt="" />
+        </picture>
+        <picture>
+          <source
+            media="(min-width: 800px)"
+            srcset="images/bg-pattern-desktop.svg"
+          />
+          <source
+            media="(min-width: 100px)"
+            srcset="images/bg-pattern-mobile.svg"
+          />
+          <img
+            src="images/bg-pattern-mobile.svg"
+            alt=""
+            class="hero-backdrop"
+          />
+        </picture>
+      </div>
+      <img src="images/illustration-box-desktop.svg" alt="" class="hero-box" />
+
       <h1 class="title">FAQ</h1>
       <ul class="FAQs">
         <li class="box">
@@ -89,7 +96,6 @@
         </li>
       </ul>
     </main>
-
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"

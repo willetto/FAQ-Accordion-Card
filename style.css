@@ -32,6 +32,7 @@ p {
   border-radius: 2rem;
   position: relative;
   margin-top: 200px;
+  height: 500px;
 }
 .container::after {
   content: '';
@@ -73,6 +74,7 @@ p {
   list-style: none;
   margin: 1rem 0;
   padding: 0;
+  z-index: 2;
 }
 .box {
   display: grid;
@@ -93,8 +95,9 @@ p {
 .answer {
   display: none;
   opacity: 0;
+  height: 0;
   transform: translateY(-100%);
-  transition: all 200ms;
+  transition: all 400ms;
 }
 
 .active .question {
@@ -106,10 +109,12 @@ p {
 }
 .active .answer {
   display: grid;
-  transform: translateY(0);
+  animation-duration: 200ms;
+  animation-name: slide-in;
   opacity: 1;
+  height: 100%;
+  transform: translateY(0%);
 }
-
 .attribution {
   font-size: 11px;
   margin-top: 3rem;
@@ -123,7 +128,7 @@ p {
   .container {
     width: min(100% - 8rem, 920px);
     height: min(500px);
-    overflow: hidden;
+    padding: 0;
     margin-inline: auto;
     margin-block: 0;
     display: grid;
@@ -131,27 +136,40 @@ p {
     grid-template-rows: 25% 1fr;
     justify-content: start;
     align-items: flex-end;
+    position: relative;
   }
-  .hero,
-  .hero-backdrop {
+  .img-contain {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    left: 0;
     grid-column: 1;
     grid-row: 1 / 3;
-    width: 58%;
-    right: 55%;
+    position: absolute;
+  }
+  .hero {
+    /* grid-column: 1;
+    grid-row: 1 / 3;  */
+
+    width: 55%;
+    left: -10%;
     margin: 0;
-    bottom: 10%;
+    bottom: 15%;
     top: initial;
   }
   .hero-backdrop {
-    width: 100%;
-    bottom: -25%;
+    left: -55%;
+    width: 160%;
+    bottom: -30%;
+    margin: 0;
+    top: initial;
   }
   .hero-box {
     display: block;
     position: absolute;
     z-index: 5;
-    top: 40%;
-    left: -20px;
+    top: 45%;
+    left: -15%;
   }
   .title {
     grid-column: 2;
@@ -162,9 +180,61 @@ p {
     align-self: flex-start;
     grid-column: 2;
     text-align: left;
-    padding-right: 5rem;
+    padding-right: 3rem;
   }
   .box {
     padding-inline: 0;
   }
-} ;
+}
+@media (min-width: 1000px) {
+  .hero {
+    width: 130%;
+    left: -8%;
+    bottom: 15%;
+  }
+  .hero-box {
+    top: 40%;
+    left: -10%;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    height: 0;
+    transform: translateY(-100%);
+  }
+  30% {
+    opacity: 0;
+    transform: translateY(-70%);
+  }
+  70% {
+    opacity: 0.7;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    height: 100%;
+    transform: translateY(0%);
+  }
+}
+@keyframes slide-out {
+  0% {
+    opacity: 1;
+    height: 100%;
+    transform: translateY(0%);
+  }
+  30% {
+    opacity: 0.7;
+    transform: translateY(0%);
+  }
+  70% {
+    opacity: 0;
+    transform: translateY(-70%);
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+    transform: translateY(-100%);
+  }
+}
